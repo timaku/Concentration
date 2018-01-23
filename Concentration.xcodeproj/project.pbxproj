@@ -12,6 +12,8 @@
 		49553930200BD54600E65FD1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4955392E200BD54600E65FD1 /* Main.storyboard */; };
 		49553932200BD54600E65FD1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 49553931200BD54600E65FD1 /* Assets.xcassets */; };
 		49553935200BD54600E65FD1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 49553933200BD54600E65FD1 /* LaunchScreen.storyboard */; };
+		4955393E200C6D9400E65FD1 /* Concentration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4955393D200C6D9400E65FD1 /* Concentration.swift */; };
+		49553940200C6E4C00E65FD1 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4955393F200C6E4C00E65FD1 /* Card.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +24,9 @@
 		49553931200BD54600E65FD1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		49553934200BD54600E65FD1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		49553936200BD54600E65FD1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4955393D200C6D9400E65FD1 /* Concentration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Concentration.swift; sourceTree = "<group>"; };
+		4955393F200C6E4C00E65FD1 /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
+		497DA2CB20149A1D00CAD65B /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -40,6 +45,7 @@
 			children = (
 				49553929200BD54600E65FD1 /* Concentration */,
 				49553928200BD54600E65FD1 /* Products */,
+				497DA2CA20149A1D00CAD65B /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -54,14 +60,32 @@
 		49553929200BD54600E65FD1 /* Concentration */ = {
 			isa = PBXGroup;
 			children = (
-				4955392A200BD54600E65FD1 /* AppDelegate.swift */,
+				4955393C200BDD5400E65FD1 /* Supporting files */,
 				4955392C200BD54600E65FD1 /* ViewController.swift */,
 				4955392E200BD54600E65FD1 /* Main.storyboard */,
-				49553931200BD54600E65FD1 /* Assets.xcassets */,
-				49553933200BD54600E65FD1 /* LaunchScreen.storyboard */,
+				4955393D200C6D9400E65FD1 /* Concentration.swift */,
+				4955393F200C6E4C00E65FD1 /* Card.swift */,
 				49553936200BD54600E65FD1 /* Info.plist */,
 			);
 			path = Concentration;
+			sourceTree = "<group>";
+		};
+		4955393C200BDD5400E65FD1 /* Supporting files */ = {
+			isa = PBXGroup;
+			children = (
+				4955392A200BD54600E65FD1 /* AppDelegate.swift */,
+				49553931200BD54600E65FD1 /* Assets.xcassets */,
+				49553933200BD54600E65FD1 /* LaunchScreen.storyboard */,
+			);
+			path = "Supporting files";
+			sourceTree = "<group>";
+		};
+		497DA2CA20149A1D00CAD65B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				497DA2CB20149A1D00CAD65B /* MapKit.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -138,6 +162,8 @@
 			files = (
 				4955392D200BD54600E65FD1 /* ViewController.swift in Sources */,
 				4955392B200BD54600E65FD1 /* AppDelegate.swift in Sources */,
+				4955393E200C6D9400E65FD1 /* Concentration.swift in Sources */,
+				49553940200C6E4C00E65FD1 /* Card.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -217,6 +243,7 @@
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
 		};
@@ -266,6 +293,7 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 4.0;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
