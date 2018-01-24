@@ -27,10 +27,16 @@ class ViewController: UIViewController {
         }
     }
     
-    //TODO : high score label and high score in model and restart game in the model
+    private(set) var maxScore = 0 {
+        didSet {
+            maxScoreLabel.text = "Max: \(maxScore)"
+        }
+    }
+    
+    @IBOutlet weak var maxScoreLabel: UILabel!
     
     @IBAction private func newGameGame(_ sender: UIButton) {
-        game = Concentration(numberOfPairsOfCards: (cardButtons.count + 1) / 2 )
+        game.restart()
         themeNumber = Int(arc4random_uniform(UInt32(emojiChoices.count)))
         emojiSuite = emojiChoices[themeNumber]!
         colors = themeColors[themeNumber]!
@@ -54,6 +60,9 @@ class ViewController: UIViewController {
     
     private func updateViewFromModel() {
         score = game.score
+        if(game.gameOver) {
+            maxScore = game.maxScore
+        }
         for index in cardButtons.indices {
             let button = cardButtons[index]
             let card = game.cards[index]
@@ -83,11 +92,11 @@ class ViewController: UIViewController {
                        4:[#colorLiteral(red: 0.5787474513, green: 0.3215198815, blue: 0, alpha: 1),#colorLiteral(red: 0.9686274529, green: 0.78039217, blue: 0.3450980484, alpha: 1),#colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)],
                        5:[#colorLiteral(red: 0.5058823824, green: 0.3372549117, blue: 0.06666667014, alpha: 1),#colorLiteral(red: 0.9529411793, green: 0.6862745285, blue: 0.1333333403, alpha: 1),#colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)]]
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        view.backgroundColor = colors[0]
-        scoreLabel.textColor = colors[1]
-    }
+//    override func viewDidLoad() {
+//        super.viewDidLoad()
+//        view.backgroundColor = colors[0]
+//        scoreLabel.textColor = colors[1]
+//    }
     
     lazy var themeNumber = Int(arc4random_uniform(UInt32(emojiChoices.count)))
 

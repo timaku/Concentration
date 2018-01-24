@@ -11,24 +11,38 @@ import Foundation
 
 class Concentration {
     private(set) var cards = [Card]()
-        
-    var flipCount = 0
-    
     var score = 0
-    
     var matchedPairs = 0
-    
     var gameOver = false
     
+    var maxScore = Int.min
+    var minScore = Int.max
+    var numberOfPairs = 0
+    
     private var indexOfOneAndOnlyFaceUpCard: Int?
+    
+    func restart() {
+        score = 0
+        matchedPairs = 0
+        gameOver = false
+        cards = [Card]()
+        
+        for _ in 1...self.numberOfPairs {
+            let card = Card()
+            cards += [card, card]
+        }
+        
+        //shuffling the cards
+        for index in cards.indices {
+            let swapIndex = Int(arc4random_uniform(UInt32(cards.count)))
+            cards.swapAt(index, swapIndex)
+        }
+    }
     
     
     func chooseCard(at index: Int) {
         assert(cards.indices.contains(index), "Concentration.chooseCard(at: \(index)): chosen index not in the cards")
         if !cards[index].isMatched {
-            if !cards[index].isFaceUp {
-                flipCount+=1
-            }
             if let matchIndex = indexOfOneAndOnlyFaceUpCard, matchIndex != index {
                 //check if cards match
                 if cards[matchIndex].identifier == cards[index].identifier {
@@ -39,6 +53,8 @@ class Concentration {
                     
                     if matchedPairs == cards.count/2 {
                         gameOver = true
+                        maxScore = maxScore > score ? maxScore : score
+                        minScore = minScore < score ? minScore : score
                     }
                 } else {
                     if cards[matchIndex].beenSeen {
@@ -66,15 +82,7 @@ class Concentration {
     
     init(numberOfPairsOfCards: Int) {
         assert(numberOfPairsOfCards > 0, "Concentration.init(\(numberOfPairsOfCards)): you must have at least one pair")
-        for _ in 1...numberOfPairsOfCards {
-            let card = Card()
-            cards += [card, card]
-        }
-        
-        //shuffling the cards
-        for index in cards.indices {
-            let swapIndex = Int(arc4random_uniform(UInt32(cards.count)))
-            cards.swapAt(index, swapIndex)
-        }
+        self.numberOfPairs = numberOfPairsOfCards
+        restart()
     }
 }

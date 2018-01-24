@@ -189,6 +189,13 @@
                                     <action selector="newGameGame:" destination="BYZ-38-t0r" eventType="touchUpInside" id="AhR-7a-n0S"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Max: 0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fzQ-lo-qwp">
+                                <rect key="frame" x="16" y="523" width="72" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -202,6 +209,7 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="maxScoreLabel" destination="fzQ-lo-qwp" id="uQ8-s1-qcb"/>
                         <outlet property="scoreLabel" destination="lPG-hK-SEi" id="33f-Pc-ohY"/>
                         <outletCollection property="cardButtons" destination="edh-hD-VOw" collectionClass="NSMutableArray" id="NjN-bA-MIT"/>
                         <outletCollection property="cardButtons" destination="b0n-hG-PKk" collectionClass="NSMutableArray" id="3cH-3A-HdW"/>
