@@ -193,7 +193,7 @@
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="aNf-HM-gWN" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="BEG-pF-MiS"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="lPG-hK-SEi" secondAttribute="bottom" constant="35" id="U7t-ao-6kc"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="lPG-hK-SEi" secondAttribute="bottom" constant="35" id="JOo-tD-iP4"/>
                             <constraint firstItem="aNf-HM-gWN" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="Vvy-g3-Bdh"/>
                             <constraint firstItem="lPG-hK-SEi" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="aGC-CZ-gV6"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="aNf-HM-gWN" secondAttribute="trailing" constant="16" id="e0e-Ah-YEs"/>

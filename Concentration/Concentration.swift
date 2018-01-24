@@ -10,7 +10,7 @@ import Foundation
 
 
 class Concentration {
-    var cards = [Card]()
+    private(set) var cards = [Card]()
         
     var flipCount = 0
     
@@ -20,9 +20,11 @@ class Concentration {
     
     var gameOver = false
     
-    var indexOfOneAndOnlyFaceUpCard: Int?
+    private var indexOfOneAndOnlyFaceUpCard: Int?
+    
     
     func chooseCard(at index: Int) {
+        assert(cards.indices.contains(index), "Concentration.chooseCard(at: \(index)): chosen index not in the cards")
         if !cards[index].isMatched {
             if !cards[index].isFaceUp {
                 flipCount+=1
@@ -63,6 +65,7 @@ class Concentration {
     }
     
     init(numberOfPairsOfCards: Int) {
+        assert(numberOfPairsOfCards > 0, "Concentration.init(\(numberOfPairsOfCards)): you must have at least one pair")
         for _ in 1...numberOfPairsOfCards {
             let card = Card()
             cards += [card, card]
