@@ -29,7 +29,7 @@ class ViewController: UIViewController {
     
     private(set) var maxScore = 0 {
         didSet {
-            maxScoreLabel.text = "Max: \(maxScore)"
+            maxScoreLabel.text = "High score: \(maxScore)"
         }
     }
     
