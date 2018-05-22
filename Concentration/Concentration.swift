@@ -15,7 +15,7 @@ struct Concentration {
     var matchedPairs = 0
     var gameOver = false
     
-    var maxScore = Int.min
+    var maxScore = UserDefaults.standard.integer(forKey: "max")
     var minScore = Int.max
     var numberOfPairs = 0
     
@@ -54,6 +54,8 @@ struct Concentration {
                     if matchedPairs == cards.count/2 {
                         gameOver = true
                         maxScore = maxScore > score ? maxScore : score
+                        UserDefaults.standard.set(maxScore, forKey: "max")
+                        maxScore = UserDefaults.standard.integer(forKey: "max")
                         minScore = minScore < score ? minScore : score
                     }
                 } else {

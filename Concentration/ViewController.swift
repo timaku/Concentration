@@ -20,6 +20,12 @@ class ViewController: UIViewController {
         }
     }
     
+    @IBAction func resetMaxScore(_ sender: UIButton) {
+        UserDefaults.standard.set(0, forKey: "max")
+        maxScore = 0
+        game.maxScore = 0
+        
+    }
     //observer
     private(set) var score = 0 {
         didSet{
@@ -27,7 +33,7 @@ class ViewController: UIViewController {
         }
     }
     
-    private(set) var maxScore = 0 {
+    private(set) var maxScore = UserDefaults.standard.integer(forKey: "max" ) {
         didSet {
             maxScoreLabel.text = "High score: \(maxScore)"
         }
@@ -60,8 +66,9 @@ class ViewController: UIViewController {
     
     private func updateViewFromModel() {
         score = game.score
+        maxScore = UserDefaults.standard.integer(forKey: "max")
         if(game.gameOver) {
-            maxScore = game.maxScore
+            maxScore = UserDefaults.standard.integer(forKey: "max")
         }
         for index in cardButtons.indices {
             let button = cardButtons[index]
